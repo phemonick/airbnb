@@ -8,6 +8,14 @@
     "android": "cd ./android && ./gradlew app:assembleDebug && ./gradlew installDebug"
   },
   "dependencies": {
+    "eslint": "^5.15.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-native": "^3.6.0",
+    "eslint-watch": "^4.0.2",
+    "lottie-react-native": "^2.5.11",
     "react": "16.6.3",
     "react-native": "0.58.6",
     "react-native-navigation": "^2.12.0",

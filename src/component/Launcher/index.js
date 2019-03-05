@@ -1,9 +1,29 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, Image } from 'react-native';
+import { View, StyleSheet, Text, Image, AsyncStorage } from 'react-native';
+import { goLogin, goToHome } from '../navigations';
 import Airbnb from '../../images/airbnb.png';
+import { USER_KEY } from '../config';
 
 export default class Launcher extends Component {
 
+    async componentDidMount() {
+        try {
+           
+            const user = await AsyncStorage.getItem(USER_KEY)
+            if(user) {
+                goToHome();
+            } else {
+                setTimeout(()=> {
+                    goLogin();
+                    // goToHome();
+                }, 1000)
+                
+            }
+
+        } catch(err) {
+
+        }
+    }
     render() {
         return (
             <View style={styles.container}>

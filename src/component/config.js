@@ -1,0 +1,1 @@
+export const USER_KEY='is_user_log'

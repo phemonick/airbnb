@@ -3,14 +3,28 @@ import { View, StyleSheet, Text, Image, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import Airbnb from '../../images/airbnb.png';
+import { goToHome } from '../navigations';
+import { Navigation } from 'react-native-navigation';
 
 export default class Login extends Component {
+
+    createAccount = () => {
+        Navigation.push(this.props.componentId, {
+            component: {
+                name: 'SignUp'
+            }
+        })
+    }
+
+    goToHome = () => {
+        goToHome();
+    }
 
     render() {
         return (
             <View style={styles.container}>
                 <View style={styles.topNav}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={()=> this.goToHome()}>
                         <Icon name="close" color="#fff" size={20} />
                     </TouchableOpacity>
                     <TouchableOpacity>
@@ -28,7 +42,8 @@ export default class Login extends Component {
                     <Icon name="facebook" color="#1ebdb9" size={16} />
                     <Text style={[styles.fbText, styles.btnText]} >Continue with Facebook</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={[styles.roundedButton, styles.createBtn]}>
+
+                <TouchableOpacity onPress={this.createAccount} style={[styles.roundedButton, styles.createBtn]}>
                     <Text style={[styles.btnText, styles.textColor]} >Create Account</Text>
                 </TouchableOpacity>
 
@@ -49,7 +64,7 @@ export default class Login extends Component {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#1ebdb9',
+      backgroundColor: '#00b7ad',
       padding: 20,
       color: '#fff'
     },
@@ -85,7 +100,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     fbText: {
-        color: '#1ebdb9',
+        color: '#00b7ad',
         flex: 3,
         textAlign: 'center',
     },
