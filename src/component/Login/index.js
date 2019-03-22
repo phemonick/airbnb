@@ -22,12 +22,12 @@ export default class Login extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <View testID='loginId' style={styles.container}>
                 <View style={styles.topNav}>
                     <TouchableOpacity onPress={()=> this.goToHome()}>
                         <Icon name="close" color="#fff" size={20} />
                     </TouchableOpacity>
-                    <TouchableOpacity>
+                    <TouchableOpacity testID='loginId'>
                         <Text style={[styles.textColor]}>Log in</Text>
                     </TouchableOpacity>
                 </View>
